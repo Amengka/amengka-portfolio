@@ -7,7 +7,8 @@ import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://amengka.com',
+  site: 'https://amengka.github.io',
+  base: '/amengka-portfolio',
   integrations: [react(), mdx()],
 
   vite: {
