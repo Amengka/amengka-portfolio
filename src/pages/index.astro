@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header';
-import Intro from '../components/Intro';
+import Intro from '../components/Intro.astro';
 import Experience from '../components/Experience';
 import Skills from '../components/Skills';
 import Education from '../components/Education';
@@ -12,7 +12,7 @@ import Projects from '../components/Projects';
 <Layout title="Ziting Wang | Software Engineer">
   <Header client:load />
   <main class="pt-24">
-    <Intro client:load />
+    <Intro />
     <Experience client:visible />
     <Skills client:visible />
     <Projects client:visible />
