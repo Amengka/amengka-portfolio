@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header';
+import Intro from '../components/Intro';
+import Experience from '../components/Experience';
+import Skills from '../components/Skills';
+import Education from '../components/Education';
+import BeyondCode from '../components/BeyondCode';
+import Projects from '../components/Projects';
+---
+
+<Layout title="Ziting Wang | Software Engineer">
+  <Header client:load />
+  <main class="pt-24">
+    <Intro client:load />
+    <Experience client:visible />
+    <Skills client:visible />
+    <Projects client:visible />
+    <Education client:visible />
+    <BeyondCode client:visible />
+  </main>
+</Layout>
