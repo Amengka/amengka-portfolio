@@ -39,7 +39,7 @@ export default function Intro() {
             </a>
 
             <a
-              href="https://www.linkedin.com/in/ziting-wang-2045b19a/"
+              href="https://www.linkedin.com/in/ziting-wang/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 text-muted hover:text-foreground transition-colors"
