@@ -5,9 +5,9 @@ const achievements = [
   {
     title: 'Mythic+ Seasonal Title',
     game: 'World of Warcraft',
-    stat: 'Top 0.1%',
+    stat: '2× Top 0.1%',
     region: 'US & Oceania',
-    description: 'Achieved top 0.1% Mythic+ rating in the region, earning the seasonal title through consistent high-level dungeon performance.',
+    description: 'Earned two seasonal Mythic+ titles by achieving top 0.1% rating in the region across multiple seasons, demonstrating consistent high-level dungeon performance.',
     skills: [
       { icon: <Target className="w-4 h-4" />, label: 'Goal Execution', description: 'Season-long strategic planning' },
       { icon: <TrendingUp className="w-4 h-4" />, label: 'Optimization', description: 'Data-driven performance tuning' },

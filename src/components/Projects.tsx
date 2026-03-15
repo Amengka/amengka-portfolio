@@ -83,6 +83,17 @@ export default function Projects() {
                 ))}
               </ul>
 
+              <div className="flex flex-wrap gap-2 mt-4">
+                {project.tech.map((t) => (
+                  <span
+                    key={t}
+                    className="px-2.5 py-1 text-xs rounded-full bg-primary/10 text-primary font-medium"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+
               {(project.github || project.live) && (
                 <div className="flex items-center gap-4 pt-4 border-t border-border/50">
                   {project.github && (
