@@ -1,34 +1,19 @@
+import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { Trophy, Target, Users, TrendingUp, Clock, Gamepad2 } from 'lucide-react';
+import type { BeyondCodeAchievement } from '../i18n';
+import { useLanguage } from '../i18n';
 
-const achievements = [
-  {
-    title: 'Mythic+ Seasonal Title',
-    game: 'World of Warcraft',
-    stat: '2× Top 0.1%',
-    region: 'US & Oceania',
-    description: 'Earned two seasonal Mythic+ titles by achieving top 0.1% rating in the region across multiple seasons, demonstrating consistent high-level dungeon performance.',
-    skills: [
-      { icon: <Target className="w-4 h-4" />, label: 'Goal Execution', description: 'Season-long strategic planning' },
-      { icon: <TrendingUp className="w-4 h-4" />, label: 'Optimization', description: 'Data-driven performance tuning' },
-      { icon: <Users className="w-4 h-4" />, label: 'Team Synergy', description: 'Coordinated 5-player execution' },
-    ],
-  },
-  {
-    title: 'Cutting Edge Raider',
-    game: 'World of Warcraft',
-    stat: '2 Tiers',
-    region: 'Limited Schedule',
-    description: 'Cleared mythic raid content at the highest difficulty while maintaining an efficient raid schedule, demonstrating time management and rapid skill acquisition.',
-    skills: [
-      { icon: <Clock className="w-4 h-4" />, label: 'Efficiency', description: 'Achieved with minimal raid hours' },
-      { icon: <Users className="w-4 h-4" />, label: 'Collaboration', description: '20-person coordinated encounters' },
-      { icon: <TrendingUp className="w-4 h-4" />, label: 'Adaptability', description: 'Quick strategy iteration' },
-    ],
-  },
-];
+const skillIcons: Record<BeyondCodeAchievement['skills'][number]['kind'], ReactNode> = {
+  target: <Target className="w-4 h-4" />,
+  trend: <TrendingUp className="w-4 h-4" />,
+  users: <Users className="w-4 h-4" />,
+  clock: <Clock className="w-4 h-4" />,
+};
 
 export default function BeyondCode() {
+  const { t } = useLanguage();
+
   return (
     <section id="beyond-code" className="py-24 px-6 bg-card/50">
       <div className="max-w-4xl mx-auto">
@@ -41,17 +26,16 @@ export default function BeyondCode() {
         >
           <div className="flex items-center gap-3 mb-3">
             <Gamepad2 className="w-6 h-6 text-primary" />
-            <h2 className="text-2xl md:text-3xl font-bold">Beyond Code</h2>
+            <h2 className="text-2xl md:text-3xl font-bold">{t.beyondCode.heading}</h2>
           </div>
           <p className="text-muted max-w-2xl">
-            Competitive gaming has taught me valuable skills that translate directly to software engineering —
-            goal execution, system optimization, and high-pressure team collaboration.
+            {t.beyondCode.intro}
           </p>
         </motion.div>
 
         {/* Achievement Cards */}
         <div className="grid md:grid-cols-2 gap-6">
-          {achievements.map((achievement, index) => (
+          {t.beyondCode.items.map((achievement, index) => (
             <motion.div
               key={achievement.title}
               initial={{ opacity: 0, y: 20 }}
@@ -88,7 +72,7 @@ export default function BeyondCode() {
                     className="flex items-center gap-3 text-sm"
                   >
                     <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                      {skill.icon}
+                      {skillIcons[skill.kind]}
                     </div>
                     <div>
                       <span className="font-medium">{skill.label}</span>

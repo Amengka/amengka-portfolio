@@ -1,38 +1,6 @@
 import { motion } from 'framer-motion';
 import { Code2 } from 'lucide-react';
-
-const skillCategories = [
-  {
-    name: 'Languages',
-    icon: '💻',
-    skills: ['Python', 'Java', 'C++', 'JavaScript', 'TypeScript', 'SQL'],
-  },
-  {
-    name: 'Frontend',
-    icon: '🎨',
-    skills: ['React', 'Next.js', 'Vue.js', 'TailwindCSS', 'HTML5', 'CSS3'],
-  },
-  {
-    name: 'Backend',
-    icon: '⚙️',
-    skills: ['Django', 'Flask', 'Node.js', 'REST APIs', 'Supabase'],
-  },
-  {
-    name: 'Database',
-    icon: '🗄️',
-    skills: ['PostgreSQL', 'Redis', 'MySQL'],
-  },
-  {
-    name: 'Cloud & DevOps',
-    icon: '☁️',
-    skills: ['Google Cloud Platform', 'Docker', 'Git'],
-  },
-  {
-    name: 'AI & Tools',
-    icon: '🤖',
-    skills: ['Claude AI', 'Codex'],
-  },
-];
+import { useLanguage } from '../i18n';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -69,6 +37,8 @@ const tagVariants = {
 };
 
 export default function Skills() {
+  const { t } = useLanguage();
+
   return (
     <section id="skills" className="py-24 px-6 bg-card/50">
       <div className="max-w-4xl mx-auto">
@@ -80,7 +50,7 @@ export default function Skills() {
           className="flex items-center gap-3 mb-12"
         >
           <Code2 className="w-6 h-6 text-primary" />
-          <h2 className="text-2xl md:text-3xl font-bold">Skills</h2>
+          <h2 className="text-2xl md:text-3xl font-bold">{t.skills.heading}</h2>
         </motion.div>
 
         <motion.div
@@ -90,7 +60,7 @@ export default function Skills() {
           viewport={{ once: true, margin: '-100px' }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {skillCategories.map((category) => (
+          {t.skills.categories.map((category) => (
             <motion.div
               key={category.name}
               variants={cardVariants}

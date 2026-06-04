@@ -1,38 +1,10 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, Calendar, MapPin, FolderGit2 } from 'lucide-react';
-
-const projects = [
-  {
-    title: 'F1-RAFTBot',
-    period: 'Mar 2025 – Apr 2025',
-    location: 'Sunnyvale, CA',
-    description: 'A domain-specific chatbot for Formula 1 using the RAFT (Retrieval-Augmented Fine-Tuning) framework to enhance factual accuracy and mitigate hallucinations in large language models.',
-    highlights: [
-      'Developed domain-specific chatbot using RAFT framework',
-      'Responsible for corpus collection and model training',
-      'Enhanced factual accuracy in LLM responses',
-    ],
-    tech: ['Python', 'LLMs', 'RAFT', 'Fine-tuning', 'NLP'],
-    github: null,
-    live: null,
-  },
-  {
-    title: 'Etsy Recommendation Service',
-    period: 'Sep 2024 – Dec 2024',
-    location: 'Sunnyvale, CA',
-    description: 'A Python-based recommendation prototype that samples Etsy product suggestions from a cloud-stored probability distribution with optimized data access.',
-    highlights: [
-      'Developed recommendation prototype sampling from probability distributions',
-      'Designed data management pipeline with cloud infrastructure',
-      'Configured Redis and optimized database access latency',
-    ],
-    tech: ['Python', 'Redis', 'Cloud Infrastructure', 'Data Pipeline'],
-    github: null,
-    live: null,
-  },
-];
+import { useLanguage } from '../i18n';
 
 export default function Projects() {
+  const { t } = useLanguage();
+
   return (
     <section id="projects" className="py-24 px-6 bg-card/50">
       <div className="max-w-4xl mx-auto">
@@ -44,11 +16,11 @@ export default function Projects() {
           className="flex items-center gap-3 mb-12"
         >
           <FolderGit2 className="w-6 h-6 text-primary" />
-          <h2 className="text-2xl md:text-3xl font-bold">Projects</h2>
+          <h2 className="text-2xl md:text-3xl font-bold">{t.projects.heading}</h2>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+          {t.projects.items.map((project, index) => (
             <motion.article
               key={project.title}
               initial={{ opacity: 0, y: 20 }}
@@ -104,7 +76,7 @@ export default function Projects() {
                       className="flex items-center gap-1 text-sm text-muted hover:text-foreground transition-colors"
                     >
                       <Github className="w-4 h-4" />
-                      Code
+                      {t.projects.code}
                     </a>
                   )}
                   {project.live && (
@@ -115,7 +87,7 @@ export default function Projects() {
                       className="flex items-center gap-1 text-sm text-muted hover:text-foreground transition-colors"
                     >
                       <ExternalLink className="w-4 h-4" />
-                      Live Demo
+                      {t.projects.liveDemo}
                     </a>
                   )}
                 </div>

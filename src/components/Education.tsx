@@ -1,26 +1,6 @@
 import { motion } from 'framer-motion';
 import { GraduationCap, Calendar, MapPin, Award } from 'lucide-react';
-
-const education = [
-  {
-    degree: "Master of Science in Computer Science",
-    school: "Northeastern University",
-    location: "San Jose, California",
-    period: "Sep 2023 – May 2025",
-    gpa: "3.83/4.0",
-    highlights: [
-      "Focus on AI/ML and software engineering",
-    ],
-  },
-  {
-    degree: "B.S. Cognitive Science + B.S. Computer Science",
-    school: "Rensselaer Polytechnic Institute",
-    location: "Troy, New York",
-    period: "Sep 2016 – May 2020",
-    gpa: null,
-    highlights: [],
-  },
-];
+import { useLanguage } from '../i18n';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -44,6 +24,8 @@ const cardVariants = {
 };
 
 export default function Education() {
+  const { t } = useLanguage();
+
   return (
     <section id="education" className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
@@ -55,7 +37,7 @@ export default function Education() {
           className="flex items-center gap-3 mb-12"
         >
           <GraduationCap className="w-6 h-6 text-primary" />
-          <h2 className="text-2xl md:text-3xl font-bold">Education</h2>
+          <h2 className="text-2xl md:text-3xl font-bold">{t.education.heading}</h2>
         </motion.div>
 
         <motion.div
@@ -65,7 +47,7 @@ export default function Education() {
           viewport={{ once: true }}
           className="space-y-6"
         >
-          {education.map((edu) => (
+          {t.education.items.map((edu) => (
             <motion.div
               key={edu.degree}
               variants={cardVariants}
@@ -105,7 +87,7 @@ export default function Education() {
                 {edu.gpa && (
                   <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium shrink-0 ml-16 md:ml-0">
                     <Award className="w-4 h-4" />
-                    <span>GPA: {edu.gpa}</span>
+                    <span>{t.education.gpaLabel}: {edu.gpa}</span>
                   </div>
                 )}
               </div>
