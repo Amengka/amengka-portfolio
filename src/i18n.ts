@@ -145,7 +145,7 @@ export const translations = {
     intro: {
       name: 'Ziting Wang',
       role: 'Software Engineer',
-      location: 'Sunnyvale, California',
+      location: 'Beijing, China',
       summary:
         'Developer with a focus on AI-powered applications, full-stack development, and building intelligent systems.',
     },
@@ -366,7 +366,7 @@ export const translations = {
     intro: {
       name: 'Ziting Wang',
       role: '软件工程师',
-      location: '加州桑尼维尔',
+      location: '中国·北京',
       summary: '专注于 AI 驱动应用、全栈开发和智能系统构建的软件工程师。',
     },
     experience: {
