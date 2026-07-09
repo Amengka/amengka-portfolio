@@ -364,7 +364,7 @@ export const translations = {
       switchToChinese: '切换到中文',
     },
     intro: {
-      name: 'Ziting Wang',
+      name: '王子霆',
       role: '软件工程师',
       location: '中国·北京',
       summary: '专注于 AI 驱动应用、全栈开发和智能系统构建的软件工程师。',
