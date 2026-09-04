@@ -345,8 +345,8 @@ export const translations = {
   },
   zh: {
     meta: {
-      title: 'Ziting Wang | 软件工程师',
-      description: 'Ziting Wang — 专注于 AI 驱动应用与全栈开发的软件工程师。',
+      title: '王子霆 | 软件工程师',
+      description: '王子霆 — 专注于 AI 驱动应用与全栈开发的软件工程师。',
     },
     nav: {
       home: '首页',
