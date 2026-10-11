@@ -10,7 +10,6 @@ const navLinks = [
   { href: '#skills', labelKey: 'skills' },
   { href: '#projects', labelKey: 'projects' },
   { href: '#education', labelKey: 'education' },
-  { href: '#beyond-code', labelKey: 'beyondCode' },
 ] as const;
 
 export default function Header() {
