@@ -42,19 +42,6 @@ export type EducationItem = {
   highlights: string[];
 };
 
-export type BeyondCodeAchievement = {
-  title: string;
-  game: string;
-  stat: string;
-  region: string;
-  description: string;
-  skills: Array<{
-    kind: 'target' | 'trend' | 'users' | 'clock';
-    label: string;
-    description: string;
-  }>;
-};
-
 export type Translation = {
   meta: {
     title: string;
@@ -66,7 +53,6 @@ export type Translation = {
     skills: string;
     projects: string;
     education: string;
-    beyondCode: string;
   };
   controls: {
     menu: string;
@@ -101,11 +87,6 @@ export type Translation = {
     gpaLabel: string;
     items: EducationItem[];
   };
-  beyondCode: {
-    heading: string;
-    intro: string;
-    items: BeyondCodeAchievement[];
-  };
 };
 
 const STORAGE_KEY = 'portfolio-language';
@@ -133,7 +114,6 @@ export const translations = {
       skills: 'Skills',
       projects: 'Projects',
       education: 'Education',
-      beyondCode: 'Beyond Code',
     },
     controls: {
       menu: 'Open menu',
@@ -154,15 +134,16 @@ export const translations = {
       achievementsHeading: 'Key Achievements',
       items: [
         {
-          title: 'Software Development Engineer Intern',
+          title: 'Software Development Engineer',
           product: 'Makeform.ai',
           company: 'Louerable Inc.',
           location: 'Sunnyvale, California',
           period: 'Oct 2025 - Present',
           achievements: [
-            'Contributed to an AI-powered form builder for creating and managing online forms.',
-            'Developed and shipped production features using Next.js/TypeScript and Supabase (PostgreSQL).',
-            'Leveraged AI-assisted development tools (e.g., Claude) to accelerate prototyping, testing, and debugging during feature development.',
+            'Contributed to the MCP server, extending tools for form creation, editing, publishing, and data queries so AI assistants can operate the platform directly.',
+            'Owned form embedding, enabling users to integrate forms into their own websites, and maintained the public-facing embed SDK.',
+            'Owned PDF export for submissions, faithfully reproducing every form structure, and extended it to automated email delivery.',
+            'Built with Next.js (TypeScript) + Supabase, using Claude Code / Codex as the primary development workflow while owning solution design, code review, and test coverage.',
           ],
         },
         {
@@ -183,8 +164,9 @@ export const translations = {
             {
               project: 'Bin-picking',
               items: [
-                'Implemented a Python workstation enabling robotic arm bin-picking using eye-in-hand stereo camera with calibration and motion planning.',
-                'Presented demo at MegTech Open Day 2022, attracting 300+ employees and media visitors.',
+                'Implemented a Python workstation enabling robotic arm bin-picking using an eye-in-hand stereo camera.',
+                'Handled stereo camera calibration, hand-eye calibration, motion planning, and collision detection to keep the system running reliably.',
+                'Showcased at Megvii Technology Open Day 2022.',
               ],
             },
           ],
@@ -222,7 +204,7 @@ export const translations = {
         {
           name: 'AI & Tools',
           icon: '🤖',
-          skills: ['Claude AI', 'Codex'],
+          skills: ['Claude Code', 'Codex', 'MCP'],
         },
       ],
     },
@@ -285,63 +267,6 @@ export const translations = {
         },
       ],
     },
-    beyondCode: {
-      heading: 'Beyond Code',
-      intro:
-        'Competitive gaming has taught me valuable skills that translate directly to software engineering: goal execution, system optimization, and high-pressure team collaboration.',
-      items: [
-        {
-          title: 'Mythic+ Seasonal Title',
-          game: 'World of Warcraft',
-          stat: '2x Top 0.1%',
-          region: 'US & Oceania',
-          description:
-            'Earned two seasonal Mythic+ titles by achieving top 0.1% rating in the region across multiple seasons, demonstrating consistent high-level dungeon performance.',
-          skills: [
-            {
-              kind: 'target',
-              label: 'Goal Execution',
-              description: 'Season-long strategic planning',
-            },
-            {
-              kind: 'trend',
-              label: 'Optimization',
-              description: 'Data-driven performance tuning',
-            },
-            {
-              kind: 'users',
-              label: 'Team Synergy',
-              description: 'Coordinated 5-player execution',
-            },
-          ],
-        },
-        {
-          title: 'Cutting Edge Raider',
-          game: 'World of Warcraft',
-          stat: '2 Tiers',
-          region: 'Limited Schedule',
-          description:
-            'Cleared mythic raid content at the highest difficulty while maintaining an efficient raid schedule, demonstrating time management and rapid skill acquisition.',
-          skills: [
-            {
-              kind: 'clock',
-              label: 'Efficiency',
-              description: 'Achieved with minimal raid hours',
-            },
-            {
-              kind: 'users',
-              label: 'Collaboration',
-              description: '20-person coordinated encounters',
-            },
-            {
-              kind: 'trend',
-              label: 'Adaptability',
-              description: 'Quick strategy iteration',
-            },
-          ],
-        },
-      ],
-    },
   },
   zh: {
     meta: {
@@ -354,7 +279,6 @@ export const translations = {
       skills: '技能',
       projects: '项目',
       education: '教育经历',
-      beyondCode: '编程之外',
     },
     controls: {
       menu: '打开菜单',
@@ -377,12 +301,13 @@ export const translations = {
           title: '软件开发工程师',
           product: 'Makeform.ai（AI 表单构建平台）',
           company: 'Louerable Inc.',
-          location: '美国·加州',
+          location: '美国·硅谷',
           period: '2025.10 - 至今',
           achievements: [
-            '参与开发一款 AI 驱动的表单构建平台，用于在线表单的创建与管理。',
-            '基于 Next.js（TypeScript）+ Supabase（PostgreSQL）开发并上线生产级功能。',
-            '利用 AI 辅助开发工具（如 Claude）提升原型开发、测试与调试效率。',
+            '参与开发 MCP 服务，扩展表单创建、编辑、发布及数据查询工具，让 AI 助手能够直接操作平台功能。',
+            '独立负责表单嵌入能力，支持用户将表单集成至自有网站，并维护对外投放的嵌入 SDK。',
+            '独立负责提交数据的 PDF 导出能力，覆盖各类表单结构的完整还原，并扩展至邮件自动投递。',
+            '基于 Next.js（TypeScript）+ Supabase 开发，以 Claude Code / Codex 为主要开发方式，负责方案设计、代码评审与测试覆盖。',
           ],
         },
         {
@@ -443,7 +368,7 @@ export const translations = {
         {
           name: 'AI 与工具',
           icon: '🤖',
-          skills: ['Claude AI', 'Codex'],
+          skills: ['Claude Code', 'Codex', 'MCP'],
         },
       ],
     },
@@ -503,63 +428,6 @@ export const translations = {
           period: '2016年9月 - 2020年5月',
           gpa: null,
           highlights: [],
-        },
-      ],
-    },
-    beyondCode: {
-      heading: '编程之外',
-      intro:
-        '高强度 PVE 竞赛长期训练出的目标拆解、路线规划、复盘优化和团队沟通能力，同样适用于复杂软件系统的交付。',
-      items: [
-        {
-          title: '史诗钥石大秘境赛季称号',
-          game: '魔兽世界',
-          stat: '2x 地区前 0.1%',
-          region: '美服与大洋洲',
-          description:
-            '两次在史诗钥石大秘境赛季结算时进入地区前 0.1%，获得赛季称号；长期围绕路线、配装、职业分工和限时节奏做复盘优化。',
-          skills: [
-            {
-              kind: 'target',
-              label: '目标拆解',
-              description: '围绕赛季分数线制定阶段计划',
-            },
-            {
-              kind: 'trend',
-              label: '复盘优化',
-              description: '基于日志和路线持续调优',
-            },
-            {
-              kind: 'users',
-              label: '五人协作',
-              description: '稳定执行分工和限时节奏',
-            },
-          ],
-        },
-        {
-          title: '千钧一发（Cutting Edge）',
-          game: '魔兽世界',
-          stat: '2 个团本版本',
-          region: '有限开荒时间',
-          description:
-            '在当前版本内击败史诗难度最终首领，两次获得“千钧一发”光辉事迹；在有限开荒时间内完成机制学习、职责配合和战术迭代。',
-          skills: [
-            {
-              kind: 'clock',
-              label: '时间管理',
-              description: '在有限团队日程内推进进度',
-            },
-            {
-              kind: 'users',
-              label: '团队配合',
-              description: '20人团队机制执行与沟通',
-            },
-            {
-              kind: 'trend',
-              label: '快速适应',
-              description: '根据失败原因快速调整策略',
-            },
-          ],
         },
       ],
     },
