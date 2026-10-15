@@ -136,7 +136,7 @@ export const translations = {
         {
           title: 'Software Development Engineer',
           product: 'Makeform.ai',
-          company: 'Louerable Inc.',
+          company: 'Louerable',
           location: 'Sunnyvale, California',
           period: 'Oct 2025 - Present',
           achievements: [
@@ -149,7 +149,7 @@ export const translations = {
         {
           title: 'Software Engineer Intern',
           product: 'ArmUI & Bin-picking',
-          company: 'Megvii Technology Limited',
+          company: 'Megvii',
           location: 'Beijing, China',
           period: 'Jul 2021 - Sep 2022',
           achievements: [
@@ -300,7 +300,7 @@ export const translations = {
         {
           title: '软件开发工程师',
           product: 'Makeform.ai（AI 表单构建平台）',
-          company: 'Louerable Inc.',
+          company: 'Louerable',
           location: '美国·硅谷',
           period: '2025.10 - 至今',
           achievements: [
